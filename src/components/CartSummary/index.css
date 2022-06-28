@@ -82,3 +82,8 @@
     width: 100%;
   }
 }
+
+.popup-text {
+  margin: 0 0 30px;
+  color: #18232e;
+}
