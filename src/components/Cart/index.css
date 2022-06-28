@@ -37,4 +37,19 @@
   }
 }
 
-/* Write your CSS here */
+.remove-all-button {
+  font-family: 'Roboto';
+  align-self: flex-end;
+  color: #0b69ff;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  .remove-all-button {
+    font-size: 20px;
+  }
+}
