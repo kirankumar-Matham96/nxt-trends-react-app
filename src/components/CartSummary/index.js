@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import ReactPopUp from '../ReactPopUp'
 import 'reactjs-popup/dist/index.css'
 import './index.css'
@@ -16,17 +16,16 @@ const CartSummary = props => {
     (total, eachPrice) => total + eachPrice,
   )
 
+  const onClosePopup = () => {
+    setTrigger(false)
+  }
+
   const onCheckout = () => {
     setTrigger(true)
+    setTimeout(() => {
+      onClosePopup()
+    }, 3000)
   }
-
-  const onClosePopup = () => {
-    setTrigger(t => !t)
-  }
-
-  useEffect(() => {
-    setTimeout(onClosePopup, 3000)
-  }, [])
 
   return (
     <div className="cart-summary-bg-container">
@@ -49,9 +48,11 @@ const CartSummary = props => {
       <button type="button" className="checkout-button-sm" onClick={onCheckout}>
         Checkout
       </button>
-      <ReactPopUp trigger={trigger} onClosePopup={onClosePopup}>
-        <h1 className="popup-text">Thank you for shopping! 😃</h1>
-      </ReactPopUp>
+      {trigger ? (
+        <ReactPopUp onClosePopup={onClosePopup}>
+          <h1 className="popup-text">Thank you for shopping! 😃</h1>
+        </ReactPopUp>
+      ) : null}
     </div>
   )
 }

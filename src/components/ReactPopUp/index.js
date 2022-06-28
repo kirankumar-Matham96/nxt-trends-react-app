@@ -1,10 +1,10 @@
-import {AiFillCloseCircle} from 'react-icons/ai'
+import {AiOutlineClose} from 'react-icons/ai'
 import './index.css'
 
 const ReactPopUp = props => {
-  const {trigger, onClosePopup, children} = props
+  const {children, onClosePopup} = props
 
-  return trigger ? (
+  return (
     <div className="popup-container">
       <div className="popup-inner-container">
         <button
@@ -12,12 +12,12 @@ const ReactPopUp = props => {
           onClick={onClosePopup}
           className="popup-close-button"
         >
-          <AiFillCloseCircle className="popup-close-button-icon" />
+          <AiOutlineClose className="popup-close-button-icon" title="close" />
         </button>
         {children}
       </div>
     </div>
-  ) : null
+  )
 }
 
 export default ReactPopUp
