@@ -56,7 +56,6 @@ class App extends Component {
   }
 
   decrementCartItemQuantity = (productId, quantity = 1) => {
-    console.log('Cart item quantity Decreased: ', productId, quantity)
     const {cartList} = this.state
 
     const oldQuantity = cartList.filter(eachItem => {
